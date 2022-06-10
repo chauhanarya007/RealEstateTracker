@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32428.217
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealEstate Tracker", "RealEstate Tracker\RealEstate Tracker.csproj", "{23771BFC-C0A0-4394-9BE9-1C39463D96EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23771BFC-C0A0-4394-9BE9-1C39463D96EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23771BFC-C0A0-4394-9BE9-1C39463D96EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23771BFC-C0A0-4394-9BE9-1C39463D96EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23771BFC-C0A0-4394-9BE9-1C39463D96EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F58ED1D9-FE3F-4803-9C7C-F661BC17BCD2}
+	EndGlobalSection
+EndGlobal
