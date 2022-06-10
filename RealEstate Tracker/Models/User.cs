@@ -16,5 +16,7 @@ namespace RealEstate_Tracker.Models
         //child model reference
         public List<Appointment> Appointments { get; set; }
 
+
+
     }
 }

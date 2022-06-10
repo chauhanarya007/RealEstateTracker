@@ -18,7 +18,11 @@ namespace RealEstate_Tracker.Models
 
         // parent model reference
 
-        public Location  Location { get; set; }
+        public Location Location { get; set; }
+
+        // child model reference
+
+        public List<Appointment> Appointments { get; set; }
 
     }
 }
