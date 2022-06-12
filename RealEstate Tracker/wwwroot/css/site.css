@@ -31,8 +31,12 @@ a:hover {
      color: #fff;
 }
 
-.navbar-light {
+.navbar-dark {
     background-color: #8BC34A;
+}
+
+body{
+    border: none;
 }
 
 table.sortable th:hover {
