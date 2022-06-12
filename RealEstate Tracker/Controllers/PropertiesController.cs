@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -57,10 +59,16 @@ namespace RealEstate_Tracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PropertyId,Photo,Address,OwnerDetails,LocationId,SalePrice")] Property @property)
+        public async Task<IActionResult> Create([Bind("PropertyId,Address,OwnerDetails,LocationId,SalePrice")] Property @property, IFormFile Photo)
         {
             if (ModelState.IsValid)
             {
+                //upload Photo if there is onbe
+                if (Photo != null)
+                {
+                    var fileName = UploadPhoto(Photo);
+                    property.Photo = fileName; //setting unique file name
+                }
                 _context.Add(@property);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -91,7 +99,7 @@ namespace RealEstate_Tracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PropertyId,Photo,Address,OwnerDetails,LocationId,SalePrice")] Property @property)
+        public async Task<IActionResult> Edit(int id, [Bind("PropertyId,Address,OwnerDetails,LocationId,SalePrice")] Property @property, IFormFile Photo, string CurrentPhoto)
         {
             if (id != @property.PropertyId)
             {
@@ -102,6 +110,17 @@ namespace RealEstate_Tracker.Controllers
             {
                 try
                 {
+                    //upload Photo if there is onbe
+                    if (Photo != null)
+                    {
+                        var fileName = UploadPhoto(Photo);
+                        property.Photo = fileName; //setting unique file name
+                    }
+                    else
+                    {
+                        //keep current photo if there is one as no new one was uploaded
+                        property.Photo = CurrentPhoto;
+                    }
                     _context.Update(@property);
                     await _context.SaveChangesAsync();
                 }
@@ -155,6 +174,26 @@ namespace RealEstate_Tracker.Controllers
         private bool PropertyExists(int id)
         {
             return _context.Properties.Any(e => e.PropertyId == id);
+        }
+
+        private static string UploadPhoto(IFormFile Photo)
+        {
+            // get temp location of uploaded photo
+            var filePath = Path.GetTempFileName();
+
+            // use GUID class to ensure unique image name.
+            var fileName = Guid.NewGuid().ToString() + "-" + Photo.FileName;
+
+            // set destination folder dynamically so it works both locally and on the live web server
+            var uploadPath = System.IO.Directory.GetCurrentDirectory() + "\\wwwroot\\img\\properties\\" + fileName;
+
+            // copy the file now
+            using (var stream = new FileStream(uploadPath, FileMode.Create))
+            {
+                Photo.CopyTo(stream);
+            }
+
+            return fileName;
         }
     }
 }

@@ -8,7 +8,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table table-striped text-light">
+<table class="table table-striped text-light sortable">
     <thead>
         <tr>
             <th>
@@ -33,7 +33,11 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Photo)
+                @if (item.Photo != null)
+                {
+                    <img src="~/img/properties/@item.Photo" alt="Product Image" class="prop-img"/>
+
+                }
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
