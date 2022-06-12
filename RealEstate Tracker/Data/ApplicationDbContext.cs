@@ -16,6 +16,6 @@ namespace RealEstate_Tracker.Data
         public DbSet<Property> Properties { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<Location> Locations { get; set; }
-       
+
     }
 }
