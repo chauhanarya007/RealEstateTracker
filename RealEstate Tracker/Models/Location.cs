@@ -10,8 +10,6 @@ namespace RealEstate_Tracker.Models
     {
         public int LocationId { get; set; }
         public string City { get; set; }
-        [StringLength(6)]
-        public string ZipCode { get; set; }
         public string Province { get; set; }
         public string Country { get; set; }
 

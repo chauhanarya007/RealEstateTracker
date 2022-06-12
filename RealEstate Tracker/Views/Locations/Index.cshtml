@@ -4,7 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Locations</h1>
+<h1>Index</h1>
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -13,9 +14,6 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ZipCode)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Province)
@@ -33,18 +31,15 @@
                 @Html.DisplayFor(modelItem => item.City)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Province)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Country)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.LocationId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.LocationId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.LocationId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.LocationId" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LocationId" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LocationId" class="btn btn-primary">Delete</a>
             </td>
         </tr>
 }

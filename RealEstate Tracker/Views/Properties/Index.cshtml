@@ -4,8 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Properties</h1>
-
+<h1>Properties on Sale</h1>
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -13,10 +12,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.NameofOwner)
+                @Html.DisplayNameFor(model => model.Photo)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerDetails)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.SalePrice)
@@ -31,10 +33,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.NameofOwner)
+                @Html.DisplayFor(modelItem => item.Photo)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerDetails)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.SalePrice)
@@ -43,9 +48,9 @@
                 @Html.DisplayFor(modelItem => item.Location.LocationId)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.PropertyId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PropertyId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PropertyId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.PropertyId" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PropertyId" class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PropertyId" class="btn btn-primary">Delete</a>
             </td>
         </tr>
 }

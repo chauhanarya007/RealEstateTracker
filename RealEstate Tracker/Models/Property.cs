@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,12 +10,17 @@ namespace RealEstate_Tracker.Models
     {
         public int PropertyId { get; set; }
 
-        public string NameofOwner { get; set; }
-
+        public string Photo { get; set; }
         public string Address { get; set; }
-        public int SalePrice { get; set; }
-        
+
+        public string OwnerDetails { get; set; }
+
         public int LocationId { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:c}")]  // MS Currency format
+        public decimal SalePrice { get; set; }
+
+
 
         // parent model reference
 

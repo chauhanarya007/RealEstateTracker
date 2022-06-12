@@ -1,4 +1,7 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
@@ -23,20 +26,22 @@ a:hover {
 .btn-primary {
     color: #fff;
     background-color: #8BC34A;
-    border-color: #1861ac;
+    border-color: #CDDC39;
 }
 
-.btn-primary:hover {
-     background-color: #689F38;
-     color: #fff;
-}
+    .btn-primary:hover {
+        background-color: #689F38;
+        color: #fff;
+        border-color: #CDDC39;
+    }
 
 .navbar-dark {
     background-color: #8BC34A;
 }
 
-body{
+body {
     border: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 table.sortable th:hover {

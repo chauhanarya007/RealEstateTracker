@@ -54,7 +54,7 @@ namespace RealEstate_Tracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LocationId,City,ZipCode,Province,Country")] Location location)
+        public async Task<IActionResult> Create([Bind("LocationId,City,Province,Country")] Location location)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace RealEstate_Tracker.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LocationId,City,ZipCode,Province,Country")] Location location)
+        public async Task<IActionResult> Edit(int id, [Bind("LocationId,City,Province,Country")] Location location)
         {
             if (id != location.LocationId)
             {
