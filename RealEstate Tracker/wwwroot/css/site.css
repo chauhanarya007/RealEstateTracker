@@ -10,6 +10,9 @@ a.navbar-brand {
     word-break: break-all;
 }
 
+.text-center > div{
+    margin-top: 13rem;
+}
 nav {
     color: #8BC34A;
 }
@@ -42,6 +45,7 @@ a:hover {
 body {
     border: none;
     font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
 table.sortable th:hover {
