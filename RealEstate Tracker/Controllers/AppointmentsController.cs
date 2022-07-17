@@ -27,7 +27,7 @@ namespace RealEstate_Tracker.Controllers
             var applicationDbContext = _context.Appointments.Include(a => a.Property).Include(a => a.User);
             return View(await applicationDbContext.ToListAsync());
         }
-
+        [AllowAnonymous]
         // GET: Appointments/Details/5
         public async Task<IActionResult> Details(int? id)
         {

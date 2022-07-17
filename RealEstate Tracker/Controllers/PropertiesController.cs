@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,6 +13,7 @@ using RealEstate_Tracker.Models;
 
 namespace RealEstate_Tracker.Controllers
 {
+    [Authorize]
     public class PropertiesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -27,7 +29,7 @@ namespace RealEstate_Tracker.Controllers
             var applicationDbContext = _context.Properties.Include(p => p.Location);
             return View(await applicationDbContext.ToListAsync());
         }
-
+        [AllowAnonymous]
         // GET: Properties/Details/5
         public async Task<IActionResult> Details(int? id)
         {
