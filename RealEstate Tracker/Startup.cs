@@ -34,14 +34,6 @@ namespace RealEstate_Tracker
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
-            services.AddAuthentication()
-                .AddGoogle(options => {
-                    options.ClientId = Configuration.GetSection("Authentication:Google")["ClientId"];
-                    options.ClientSecret = Configuration.GetSection("Authentication:Google")["ClientSecret"];
-                });
-            services.AddSession();
-
             services.AddControllersWithViews();
         }
 
